@@ -22,6 +22,7 @@ class Director
 	end
 	
 	def play
+		#水とプレイヤーの衝突判定が必要
 		
 		Scene.play
 	end
