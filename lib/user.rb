@@ -1,0 +1,2 @@
+# coding: Shiht_JIS
+
