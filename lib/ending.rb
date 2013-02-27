@@ -1,4 +1,6 @@
-﻿class Ending
+﻿# coding: UTF-8
+
+class Ending
   attr_reader :closed
 
   def initialize

@@ -1,3 +1,5 @@
+# coding: UTF-8
+
 class Scene
   @@scenes = {}
   @@current_scene_name = nil
