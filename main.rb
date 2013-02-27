@@ -9,17 +9,12 @@ require_relative 'lib/director'
 require_relative 'lib/title'
 require_relative 'lib/ending'
 require_relative 'lib/scene'
+require_relative 'lib/game'
 
-title = Title.new
-ending = Ending.new
-
-Scene.add_scene(:title,  title)
-Scene.add_scene(:ending,  ending)
-
-Scene.set_scene(:title)
+director = Director.new
 
 Window.loop do
-	break if Input.keyPush?(K_ESCAPE) || ending.closed
+	break if Input.keyPush?(K_ESCAPE)
 	
-	Scene.play
+	director.play
 end

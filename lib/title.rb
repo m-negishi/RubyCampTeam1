@@ -1,10 +1,10 @@
 ﻿class Title
   def initialize
-    @bg_img = Image.load("images/title.png")
+    @background_img = Image.load("images/title.png")
   end
 
   def play
     Scene.set_scene(:game) if Input.keyPush?(K_SPACE)
-    Window.draw(0, 0, @bg_img)
+    Window.draw(0, 0, @background_img)
   end
 end
