@@ -22,6 +22,7 @@ water << Water.new(228, 228, water_img)
 pipe = []
 pipe << Pipe.new(228, 100, pipe_img)
 
+director = Director.new
 
 Window.loop do
 	break if Input.keyPush?(K_ESCAPE)
@@ -32,11 +33,6 @@ Window.loop do
 	Sprite.draw(water)
   Sprite.draw(pipe)
 	Sprite.draw(objects)
-
-director = Director.new
-
-Window.loop do
-	break if Input.keyPush?(K_ESCAPE)	
+	
 	director.play
-	@map = Map.new("images/map01.dat")
 end

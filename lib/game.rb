@@ -2,7 +2,7 @@
 
 require_relative 'map'
 require_relative 'water'
-#require_relative 'user'
+require_relative 'user'
 
 class Game
   def initialize
