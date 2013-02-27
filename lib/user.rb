@@ -1,9 +1,9 @@
 # coding: UTF-8
 
-class Player < Sprite
+class User < Sprite
   def update
-    @dx = Input.x
-    @dy = Input.y
+    @dx = Input.x * 2
+    @dy = Input.y * 2
     self.x += @dx
     self.y += @dy
   end
@@ -12,4 +12,18 @@ class Player < Sprite
     self.x -= @dx
     self.y -= @dy
   end
+
+	def shot(obj)
+		
+  end
+
+end
+
+class Wall < Sprite
+end
+
+class Pipe < Sprite
+end
+
+class Water < Sprite
 end
