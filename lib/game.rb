@@ -9,7 +9,7 @@ class Game
     @map = Map.new("sample1.dat")
 		@user_img = Image.load("images/user.png")
 		@user_img.setColorKey([0, 0, 0])
-		@user = User.new(100, 100, @user_img)
+		@user = User.new(0, 0, @user_img)
   end
 
   def play
