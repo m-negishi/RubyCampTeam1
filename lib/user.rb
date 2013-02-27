@@ -1,2 +1,2 @@
-# coding: Shiht_JIS
+# coding: utf-8
 
