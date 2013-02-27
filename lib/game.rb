@@ -2,15 +2,15 @@
 
 require_relative 'map'
 require_relative 'water'
-require_relative 'user'
+#require_relative 'user'
 
 class Game
   def initialize
-    #@map = Map.new("sample1.dat")
+    @map = Map.new("sample1.dat")
   end
 
   def play
     Scene.set_scene(:ending) if Input.keyPush?(K_SPACE)
-    #@map.draw
+    @map.draw
   end
 end
