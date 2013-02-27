@@ -1,18 +1,38 @@
-require 'dxruby'
+# coding: UTF-8
 
-#‹Á‚«Å¬‚ÌŒ´‘¥
-#player_img = Image.load("./images/player.png")
-player = Sprite.new(400, 400, Image.load("./images/player.png"))
-speed = 5;
+require 'dxruby'
+require_relative 'lib/director'
+
+user_img = Image.load("images/user.png")
+user_img.setColorKey([0, 0, 0])
+
+wall_img = Image.load("images/wall.png")
+
+pipe_img = Image.load("images/pipe.png")
+
+water_img = Image.load("images/water.png")
+
+objects = []
+objects << User.new(400, 300, user_img)
+objects << Wall.new(100, 100, wall_img)
+
+water = []
+water << Water.new(228, 228, water_img)
+
+pipe = []
+pipe << Pipe.new(228, 100, pipe_img)
+
+director = Director.new
 
 Window.loop do
 	break if Input.keyPush?(K_ESCAPE)
-#	Window.draw(100, 100, player_img)
-#	Window.draw(640-32, 480-32, player_img)
-#	Window.draw(Window.width - player_img.width,
-#				Window.height - player_img.height,
-#				player_img)
-	player.draw
-	player.x += (Input.x * speed)
-	player.y += (Input.y * speed)
+	
+	Sprite.update(objects)
+  Sprite.check(objects, objects)
+	Sprite.check(objects, water)
+	Sprite.draw(water)
+  Sprite.draw(pipe)
+	Sprite.draw(objects)
+	
+	director.play
 end
