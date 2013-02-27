@@ -1,2 +1,3 @@
-# coding: Shiht_JIS
+# coding: UTF-8
 
+class Player < Sprite
