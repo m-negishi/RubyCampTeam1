@@ -1,4 +1,6 @@
-﻿class Title
+﻿# coding: UTF-8
+
+class Title
   def initialize
     @background_img = Image.load("images/title.png")
   end

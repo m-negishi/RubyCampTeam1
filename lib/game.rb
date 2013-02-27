@@ -14,6 +14,8 @@ class Game
 
   def play
     Scene.set_scene(:ending) if Input.keyPush?(K_SPACE)
+    Scene.set_scene(:over) if Input.keyPush?(K_SPACE)
+    Scene.set_scene(:ending) if Input.keyPush?(K_RETURN)
 		@map.draw
 		Sprite.update(@user)
 		Sprite.draw(@user)
