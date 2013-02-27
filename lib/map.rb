@@ -2,7 +2,7 @@
 
 class Map
   def initialize(map_file)
-    @chips = Image.loadToArray(File.join(File.dirname(__FILE__), "..", "images", "map_chips.png"), 4, 4)
+    @chips = Image.loadToArray(File.join(File.dirname(__FILE__), "..", "images", "map_chips2.png"), 4, 4)
     @map_data = []
     File.open(map_file).each do |line|
       @map_data << line.chomp.split(/\s*,\s*/)
