@@ -1,10 +1,6 @@
 # coding: UTF-8
 
 require 'dxruby'
-
-require_relative 'lib/map'
-require_relative 'lib/user'
-require_relative 'lib/water'
 require_relative 'lib/director'
 
 user_img = Image.load("images/user.png")
@@ -37,4 +33,10 @@ Window.loop do
   Sprite.draw(pipe)
 	Sprite.draw(objects)
 
+director = Director.new
+
+Window.loop do
+	break if Input.keyPush?(K_ESCAPE)	
+	director.play
+	@map = Map.new("images/map01.dat")
 end
