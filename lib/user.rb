@@ -8,24 +8,14 @@ class User < Sprite
     self.y += @dy
   end
 
+=begin
   def hit(obj)
     self.x -= @dx
     self.y -= @dy
   end
 
-	def shot(obj)
-		
-  end
+=end
 
-end
-
-class Wall < Sprite
-end
-
-class Pipe < Sprite
-end
-
-class Water < Sprite
 end
 
 
