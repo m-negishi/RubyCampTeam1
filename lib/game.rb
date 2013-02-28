@@ -37,8 +37,6 @@ class Game
     Scene.set_scene(:over) if Input.keyPush?(K_SPACE)
     Scene.set_scene(:ending) if Input.keyPush?(K_RETURN)
 		@map.draw
-		Sprite.update(@user)
-		Sprite.draw(@user)
 		
 		#水関係
 		@map_water = @water.move
@@ -50,6 +48,9 @@ class Game
 	  Window.draw( 0, 0 ,@gameover_img)
 
 		end
+
+		Sprite.update(@user)
+		Sprite.draw(@user)
 
 		if @user.hit_goal(@map_water) == true
 			Scene.set_scene(:ending)

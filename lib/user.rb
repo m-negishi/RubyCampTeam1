@@ -4,8 +4,8 @@ class User < Sprite
   def initialize(x, y, user_file)
 		@scroll_count = 0
     @scroll_place = 0
-	@background_img = Image.load("images/gameover.png")
-	@wall_size = 32
+		@background_img = Image.load("images/gameover.png")
+		@wall_size = 32
     super
 	end
 
@@ -18,9 +18,7 @@ class User < Sprite
 		self.y -= @dy unless self.y <= Window.height - self.image.height
 		if @scroll_place < 15
       @scroll_count += (32 / 60.0)
-			#if self.y > 0
-      	self.y -= (32 / 60.0)
-			#end
+      self.y -= (32 / 60.0)
 			if @scroll_count >= 32.0
       	@scroll_place += 1
 				@scroll_count = 0
