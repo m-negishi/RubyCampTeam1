@@ -21,6 +21,7 @@ class Map < Sprite
   # マップ初期化処理
   def initialize(map_file)
     #@map_start = Image.load("images/map_start.png")
+    #@map_goal = Image.load("images/map_goal.png")
     @chips = Image.loadToArray(File.join(File.dirname(__FILE__), "..", "images", "map_chips2.png"), 4, 4)
     @map_data = []				# draw で使用する配列の確保
     # マップデータファイルを開いて、「 , 」を区切りとして
@@ -52,7 +53,8 @@ class Map < Sprite
         	Sprite.draw(@map_chips)
         	@all_map_chips.push(@map_chips)
         else
-         Window.draw((mx * @c_w), (my * @c_h - @scroll_count), tmp)
+          #Window.draw(0, 764, @map_goal)
+          Window.draw((mx * @c_w), (my * @c_h - @scroll_count), tmp)
         end
       end
     end
