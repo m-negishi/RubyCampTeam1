@@ -2,7 +2,7 @@
 
 class Title
   def initialize
-    @background_img = Image.load("images/title.png")
+    @background_img = Image.load("images/title.png") 
   end
 
   def play
