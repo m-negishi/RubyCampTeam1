@@ -16,6 +16,8 @@
 
 #クラス Map
 class Map
+	attr_reader :scroll_place
+	MAP_HEIGHT = 15
   # マップ初期化処理
   def initialize(map_file)
     @chips = Image.loadToArray(File.join(File.dirname(__FILE__), "..", "images", "map_chips2.png"), 4, 4)
@@ -26,7 +28,7 @@ class Map
       @map_data << line.chomp.split(/\s*,\s*/)
     end
     @map_width = 20				# マップの横幅
-    @map_height = 15			# マップの縦幅
+    @map_height = MAP_HEIGHT			# マップの縦幅
     @c_w = @chips.first.width	# @chips配列の先頭の横幅
     @c_h = @chips.first.height	# @chips配列の先頭の縦幅
     @scroll_place = 0			# スクロールする量
