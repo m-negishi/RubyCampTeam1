@@ -44,7 +44,11 @@ class Game
 		@water.draw
 		font = Font.new(32)
 		if @user.hit_water(@map_water) == true
-			Window.drawFont(100, 100, "衝突中", font)
+			#Window.drawFont(100, 100, "衝突中", font)
+		end
+
+		if @user.hit_goal(@map_water) == true
+			Scene.set_scene(:ending)
 		end
 
 		Sprite.check(@map.all_map_chips, @user)
