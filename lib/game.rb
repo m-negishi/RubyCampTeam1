@@ -8,7 +8,7 @@ class Game
   def initialize
     @map = Map.new("data/stage1.dat")
 		@user_img = Image.load("images/user.png")
-		@user_img.setColorKey([0, 0, 0])
+		@user_img.setColorKey([255, 255, 255])
 		@user = User.new(168, 70, @user_img) #スタート位置座標(168, 70)
 
 	#水に関する変数
