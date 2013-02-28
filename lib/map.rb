@@ -17,7 +17,7 @@
 #クラス Map
 class Map < Sprite
   attr_reader :all_map_chips
-
+  
   # マップ初期化処理
   def initialize(map_file)
     @chips = Image.loadToArray(File.join(File.dirname(__FILE__), "..", "images", "map_chips2.png"), 4, 4)
@@ -46,7 +46,7 @@ class Map < Sprite
       	# 長くなり見づらいので @chips を一時的に tmp に格納してから次で使用
         tmp = @chips[@map_data[my + @scroll_place][mx].to_i]
         
-        if @map_data[my + @scroll_place][mx].to_i == 0 || @map_data[my + @scroll_place][mx].to_i == 1 || @map_data[my + @scroll_place][mx].to_i == 2
+        if @map_data[my + @scroll_place][mx].to_i == 0
         	@map_chips = Sprite.new((mx * @c_w), (my * @c_h - @scroll_count), tmp)
         	Sprite.draw(@map_chips)
         	@all_map_chips.push(@map_chips)
