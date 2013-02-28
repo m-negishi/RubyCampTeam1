@@ -20,6 +20,7 @@ class Map < Sprite
   
   # マップ初期化処理
   def initialize(map_file)
+    #@map_start = Image.load("images/map_start.png")
     @chips = Image.loadToArray(File.join(File.dirname(__FILE__), "..", "images", "map_chips2.png"), 4, 4)
     @map_data = []				# draw で使用する配列の確保
     # マップデータファイルを開いて、「 , 」を区切りとして
@@ -45,7 +46,7 @@ class Map < Sprite
       @map_width.times do |mx|
       	# 長くなり見づらいので @chips を一時的に tmp に格納してから次で使用
         tmp = @chips[@map_data[my + @scroll_place][mx].to_i]
-        
+      
         if @map_data[my + @scroll_place][mx].to_i == 0
         	@map_chips = Sprite.new((mx * @c_w), (my * @c_h - @scroll_count), tmp)
         	Sprite.draw(@map_chips)
