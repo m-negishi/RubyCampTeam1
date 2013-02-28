@@ -40,7 +40,7 @@ class Map
   # @map.drawで呼ばれるメソッド
   def draw
         # マップの縦方向の数ループ
-    (@map_height + 1).times do |my|
+    (@map_height + 1 ).times do |my|
     	# マップの横方向の数ループ
       @map_width.times do |mx|
       	# 長くなり見づらいので @chips を一時的に tmp に格納してから次で使用

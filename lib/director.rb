@@ -17,11 +17,16 @@ class Director
 		Scene.add_scene(:ending,  ending)
 		Scene.add_scene(:game,  game)
 		Scene.add_scene(:over,  over)
-		
+	  @sound = Sound.new("sound/play.wav")  
+   
 		Scene.set_scene(:title)
 	end
 	
 	def play
+	 @sound.play
+	 if Input.keyPush?(K_Z)
+    @sound.stop
+    end
 		#水とプレイヤーの衝突判定が必要
 		#プレイヤーと水道管の衝突判定が必要
 		
