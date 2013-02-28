@@ -29,7 +29,6 @@ class Director
     end
 		#水とプレイヤーの衝突判定が必要
 		#プレイヤーと水道管の衝突判定が必要
-		
 		Scene.play
 	end
 end

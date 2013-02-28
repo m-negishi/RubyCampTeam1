@@ -33,9 +33,11 @@ class Water
 		#スタートの浸水
 		@map[@i][@j]=-1
 		
-		
+		@scroll_place = 0
+	    @scroll_count = 0
+
 		@t=0
-		@w_time = 10#水の速さ(w_time回のループで一回進む)
+		@w_time = 120#水の速さ(w_time回のループで一回進む)
 		@s_time = 60#スクロールのタイミング
 		#スクロールするかどうか 0:しない,1:する
 		@sc_f = 1
@@ -97,14 +99,18 @@ class Water
 		@h.times{ |i|
 			@w.times{ |j|
 				if(@map[i][j]==-1)
-					if @t / @s_time < @h - Window.height / @wall_size
-						Window.drawAlpha(j * @wall_size,i * @wall_size - ( @sc_f * @t / @s_time ) * @wall_size  ,@water_img,128)
-					else
-						Window.drawAlpha(j * @wall_size,i * @wall_size - ( @h - Window.height / @wall_size ) * @wall_size  ,@water_img,128)
-					end
+					Window.drawAlpha(j * @wall_size,(i - @scroll_place) * @wall_size - @scroll_count  ,@water_img,128)
+
 				end
 			}
 		}
+		if @scroll_place < 15
+	      @scroll_count += (32 / 60.0)			# drawの呼ばれた回数をカウント
+	      if @scroll_count >= 32.0
+	         @scroll_place += 1
+	         @scroll_count = 0
+	      end
+	    end
 		
 	end
 end

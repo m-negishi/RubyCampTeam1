@@ -29,7 +29,6 @@ class Game
 		}
 	}
 	#ここまで
-
   end
 
   def play
@@ -39,9 +38,15 @@ class Game
 		@map.draw
 		Sprite.update(@user)
 		Sprite.draw(@user)
-
+		
 		#水関係
 		@map_water = @water.move
 		@water.draw
+		font = Font.new(32)
+		if @user.hit_water(@map_water) == true
+			Window.drawFont(100, 100, "衝突中", font)
+		end
+
+		Sprite.check(@map.all_map_chips, @user)
   end
 end
