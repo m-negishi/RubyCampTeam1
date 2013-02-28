@@ -18,9 +18,9 @@ class User < Sprite
 		self.y -= @dy unless self.y <= Window.height - self.image.height
 		if @scroll_place < 15
       @scroll_count += (32 / 60.0)
-			if self.y > 0
+			#if self.y > 0
       	self.y -= (32 / 60.0)
-			end
+			#end
 			if @scroll_count >= 32.0
       	@scroll_place += 1
 				@scroll_count = 0
