@@ -8,6 +8,7 @@ class Game
   def initialize
     @map = Map.new("data/stage1.dat")
 		@user_img = Image.load("images/user.png")
+		@gameover_img = Image.load("images/gameover.png")
 		@user_img.setColorKey([255, 255, 255])
 		@user = User.new(168, 70, @user_img) #スタート位置座標(168, 70)
 
@@ -44,7 +45,9 @@ class Game
 		@water.draw
 		font = Font.new(32)
 		if @user.hit_water(@map_water) == true
-			Window.drawFont(100, 100, "衝突中", font)
+		
+		Window.drawFont(100, 100, "衝突中", font)
+	  Window.draw( 0, 0 ,@gameover_img)
 		end
 
 		Sprite.check(@map.all_map_chips, @user)
