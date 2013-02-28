@@ -6,7 +6,7 @@ class Water
  	def initialize( tmp_i, tmp_j )
 
 		@map = []
-		File.open("../data/stage1.dat").each do |line|
+		File.open("data/stage1.dat").each do |line|
 			@map << line.chomp.split(/\s*,\s*/)
     	end
 
@@ -97,7 +97,11 @@ class Water
 		@h.times{ |i|
 			@w.times{ |j|
 				if(@map[i][j]==-1)
-					Window.drawAlpha(j * @wall_size,i * @wall_size - ( @sc_f * @t / @s_time ) * @wall_size  ,@water_img,128)
+					if @t / @s_time < @h - Window.height / @wall_size
+						Window.drawAlpha(j * @wall_size,i * @wall_size - ( @sc_f * @t / @s_time ) * @wall_size  ,@water_img,128)
+					else
+						Window.drawAlpha(j * @wall_size,i * @wall_size - ( @h - Window.height / @wall_size ) * @wall_size  ,@water_img,128)
+					end
 				end
 			}
 		}
