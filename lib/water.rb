@@ -37,7 +37,7 @@ class Water
 	    @scroll_count = 0
 
 		@t=0
-		@w_time = 120#水の速さ(w_time回のループで一回進む)
+		@w_time = 15#水の速さ(w_time回のループで一回進む)
 		@s_time = 60#スクロールのタイミング
 		#スクロールするかどうか 0:しない,1:する
 		@sc_f = 1
