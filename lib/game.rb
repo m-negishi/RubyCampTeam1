@@ -36,8 +36,6 @@ class Game
     Scene.set_scene(:over) if Input.keyPush?(K_SPACE)
     Scene.set_scene(:ending) if Input.keyPush?(K_RETURN)
 		@map.draw
-		Sprite.update(@user)
-		Sprite.draw(@user)
 		
 		#水関係
 		@map_water = @water.move
@@ -46,6 +44,9 @@ class Game
 		if @user.hit_water(@map_water) == true
 			#Window.drawFont(100, 100, "衝突中", font)
 		end
+
+		Sprite.update(@user)
+		Sprite.draw(@user)
 
 		if @user.hit_goal(@map_water) == true
 			Scene.set_scene(:ending)
