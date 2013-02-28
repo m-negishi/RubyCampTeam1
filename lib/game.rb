@@ -42,15 +42,14 @@ class Game
 		@map_water = @water.move
 		@water.draw
 		font = Font.new(32)
-		if @user.hit_water(@map_water) == true
-
-		Window.drawFont(100, 100, "衝突中", font)
-	  Window.draw( 0, 0 ,@gameover_img)
-
-		end
 
 		Sprite.update(@user)
 		Sprite.draw(@user)
+
+		if @user.hit_water(@map_water) == true
+			Window.drawFont(100, 100, "衝突中", font)
+	  	Window.draw( 0, 0 ,@gameover_img)
+		end
 
 		if @user.hit_goal(@map_water) == true
 			Scene.set_scene(:ending)
