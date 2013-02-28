@@ -1,0 +1,7 @@
+#
+
+#mac temporary files
+.DS_Store
+
+#temporary files
+*.*~

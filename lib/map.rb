@@ -34,25 +34,31 @@ class Map
     @scroll_place = 0			# スクロールする量
     @scroll_count = 0			# スクロールに使うカウント用変数
   end
-	
+
+  def scroll_place
+    return @@scroll_place
+	end
+
   # @map.drawで呼ばれるメソッド
   def draw
-  	# @scroll_count が60の倍数だったら(60fps換算の1秒分)かつマップ端ではない
-  	if  (@scroll_count % 60) == 0 && @scroll_place + 1 <= @map_height
-    	@scroll_place += 1 # スクロール量をひとつ増加
-    end
-    # マップの縦方向の数ループ
-    @map_height.times do |my|
+        # マップの縦方向の数ループ
+    (@map_height + 1).times do |my|
     	# マップの横方向の数ループ
       @map_width.times do |mx|
       	# 長くなり見づらいので @chips を一時的に tmp に格納してから次で使用
         tmp = @chips[@map_data[my + @scroll_place][mx].to_i]
         # 絵を出すだけのdrawですが、デバック用にコメントアウト
         # Window.draw((mx * @c_w), (my * @c_h), tmp)
-        map_chips = Sprite.new((mx * @c_w), (my * @c_h), tmp)
+        map_chips = Sprite.new((mx * @c_w), (my * @c_h - @scroll_count), tmp)
         Sprite.draw(map_chips)
       end
     end
-    @scroll_count += 1			# drawの呼ばれた回数をカウント
+    if @scroll_place < 15
+      @scroll_count += (32 / 60.0)			# drawの呼ばれた回数をカウント
+      if @scroll_count >= 32.0
+         @scroll_place += 1
+         @scroll_count = 0
+      end
+    end
   end
 end
