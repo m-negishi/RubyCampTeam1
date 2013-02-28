@@ -9,7 +9,7 @@ class User < Sprite
     self.y += @dy
     
     if (@map.scroll_place < Map::MAP_HEIGHT)
-    	self.y -= 0.5
+    	self.y -= 1
     	
     end
   end
