@@ -32,7 +32,11 @@ class Map
     @scroll_place = 0			# スクロールする量
     @scroll_count = 0			# スクロールに使うカウント用変数
   end
-	
+
+  def scroll_place
+    return @@scroll_place
+	end
+
   # @map.drawで呼ばれるメソッド
   def draw
         # マップの縦方向の数ループ
