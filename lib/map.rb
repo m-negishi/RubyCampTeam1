@@ -15,7 +15,9 @@
 
 
 #クラス Map
-class Map
+class Map < Sprite
+  attr_reader :all_map_chips
+
   # マップ初期化処理
   def initialize(map_file)
     @chips = Image.loadToArray(File.join(File.dirname(__FILE__), "..", "images", "map_chips2.png"), 4, 4)
@@ -30,21 +32,27 @@ class Map
     @c_w = @chips.first.width	# @chips配列の先頭の横幅
     @c_h = @chips.first.height	# @chips配列の先頭の縦幅
     @scroll_place = 0			# スクロールする量
-    @scroll_count = 0			# スクロールに使うカウント用変数
+    @scroll_count = 0			# スクロールに使うカウント用変数  
+    @map_chips = nil  
   end
-	
+
   # @map.drawで呼ばれるメソッド
   def draw
+    @all_map_chips = []
         # マップの縦方向の数ループ
     (@map_height + 1).times do |my|
     	# マップの横方向の数ループ
       @map_width.times do |mx|
       	# 長くなり見づらいので @chips を一時的に tmp に格納してから次で使用
         tmp = @chips[@map_data[my + @scroll_place][mx].to_i]
-        # 絵を出すだけのdrawですが、デバック用にコメントアウト
-        # Window.draw((mx * @c_w), (my * @c_h), tmp)
-        map_chips = Sprite.new((mx * @c_w), (my * @c_h - @scroll_count), tmp)
-        Sprite.draw(map_chips)
+        
+        if @map_data[my + @scroll_place][mx].to_i == 0 || @map_data[my + @scroll_place][mx].to_i == 1 || @map_data[my + @scroll_place][mx].to_i == 2
+        	@map_chips = Sprite.new((mx * @c_w), (my * @c_h - @scroll_count), tmp)
+        	Sprite.draw(@map_chips)
+        	@all_map_chips.push(@map_chips)
+        else
+         Window.draw((mx * @c_w), (my * @c_h - @scroll_count), tmp)
+        end
       end
     end
     if @scroll_place < 15
@@ -54,5 +62,9 @@ class Map
          @scroll_count = 0
       end
     end
+  end
+  
+  def shot(obj)
+  	p 'shot test'
   end
 end

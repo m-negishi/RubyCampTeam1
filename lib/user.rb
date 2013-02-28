@@ -8,13 +8,11 @@ class User < Sprite
     self.y += @dy
   end
 
-=begin
+
   def hit(obj)
     self.x -= @dx
     self.y -= @dy
   end
-
-=end
 
 end
 
